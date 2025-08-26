@@ -5,21 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VitaGlow | Premium Skincare Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23E91E63%22>V</text></svg>">
     <style>
         :root {
             --primary: #E91E63;        /* Pink for primary accent */
             --primary-light: #F8BBD0;  /* Light pink */
             --primary-dark: #C2185B;   /* Dark pink */
-            --secondary: #A6CE39;      /* Green for secondary accent */
+            --secondary: #4CAF50;      /* Green for secondary accent */
+            --secondary-light: #C8E6C9; /* Light green */
+            --secondary-dark: #388E3C;  /* Dark green */
             --light: #FFFFFF;          /* White background */
-            --dark: #333333;           /* Dark gray for text */
+            --dark: #2D2D2D;           /* Dark gray for text */
             --gray: #777777;           /* Medium gray */
-            --gray-light: #D9D9D9;     /* Light gray */
-            --gray-silver: #C0C0C0;    /* Silver gray */
-            --accent: #A6CE39;         /* Green accent */
-            --shadow: 0 4px 12px rgba(0,0,0,0.08);
+            --gray-light: #F9F6F7;     /* Very light pink background */
+            --accent: #4CAF50;         /* Green accent */
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
             --transition: all 0.3s ease;
+            --radius: 12px;
         }
         
         * {
@@ -29,24 +34,104 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background: var(--light);
             color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
         }
         
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(233, 30, 99, 0.3);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            color: white;
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.3);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 3px;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        
         /* Header Styles */
         header {
-            background: linear-gradient(135deg, var(--light), var(--primary-light));
-            padding: 0.8rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: var(--shadow);
+            background: var(--light);
+            padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
         .logo {
@@ -56,25 +141,33 @@
         }
         
         .logo-icon {
-            color: var(--primary);
-            font-size: 1.8rem;
+            width: auto;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
         }
         
         .logo h1 {
             font-size: 1.8rem;
-            color: var(--primary);
-            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
         nav {
             display: flex;
-            gap: 1.8rem;
+            gap: 2rem;
         }
         
         nav a {
             text-decoration: none;
             color: var(--dark);
-            font-weight: 600;
+            font-weight: 500;
             font-size: 1.05rem;
             position: relative;
             padding: 0.4rem 0;
@@ -100,10 +193,16 @@
             width: 100%;
         }
         
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
         .verify-btn {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 0.6rem 1.2rem;
+            padding: 0.6rem 1.5rem;
             border-radius: 30px;
             font-weight: 600;
             text-decoration: none;
@@ -115,8 +214,8 @@
         }
         
         .verify-btn:hover {
-            background: var(--primary-dark);
             transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(233, 30, 99, 0.3);
         }
         
         .mobile-menu {
@@ -126,460 +225,234 @@
             color: var(--primary);
         }
         
-        /* Mobile Navigation - Fixed */
-        .mobile-nav {
-            display: none;
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 280px;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            z-index: 2000;
-            flex-direction: column;
-            padding: 80px 25px 40px;
-            transform: translateX(100%);
-            transition: transform 0.4s ease;
-            box-shadow: -5px 0 25px rgba(0,0,0,0.08);
-            overflow-y: auto;
-        }
-        
-        .mobile-nav.active {
-            transform: translateX(0);
-        }
-        
-        .mobile-nav a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 600;
-            font-size: 1.1rem;
-            padding: 14px 0;
-            width: 100%;
-            border-bottom: 1px solid rgba(233, 30, 99, 0.15);
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .mobile-nav a::before {
-            content: "•";
-            color: var(--primary);
-            font-size: 1.5rem;
-        }
-        
-        .mobile-nav a:hover {
-            color: var(--primary);
-            transform: translateX(5px);
-        }
-        
-        .mobile-nav a:last-child {
-            border-bottom: none;
-        }
-        
-        .mobile-verify-btn {
-            background: var(--primary);
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 30px;
-            font-weight: 600;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: var(--transition);
-            margin-top: 1.5rem;
-            font-size: 1.1rem;
-            box-shadow: var(--shadow);
-            width: 100%;
-        }
-        
-        .mobile-verify-btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
-        }
-        
-        #closeMenu {
-            position: absolute;
-            top: 25px;
-            right: 25px;
-            font-size: 1.8rem;
-            color: var(--primary);
-            cursor: pointer;
-            background: none;
-            border: none;
-            transition: var(--transition);
-            z-index: 2001;
-        }
-        
-        #closeMenu:hover {
-            transform: rotate(90deg);
-        }
-        
-        /* Overlay for background dimming */
-        .nav-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1500;
-        }
-        
-        .nav-overlay.active {
-            display: block;
-        }
-        
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95)), 
-                        url('https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
-            background-size: cover;
-            background-position: center;
-            padding: 5rem 5% 4rem;
-            text-align: center;
-            position: relative;
-        }
-        
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .hero h2 {
-            font-size: 2.8rem;
-            color: var(--primary);
-            margin-bottom: 1.2rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .hero p {
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-            font-size: 1.2rem;
-            color: #444;
-        }
-        
-        .cta-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--primary);
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-decoration: none;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            animation: pulse 2s infinite;
-        }
-        
-        .cta-btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 16px rgba(194, 24, 91, 0.2);
-        }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(233, 30, 99, 0.4); }
-            70% { box-shadow: 0 0 0 12px rgba(233, 30, 99, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(233, 30, 99, 0); }
-        }
-        
-        /* Product Section */
-        .product-section {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 2rem;
-            display: flex;
-            gap: 3rem;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-        
-        .product-image-container {
-            flex: 1;
-            min-width: 300px;
-            position: relative;
-            perspective: 1000px;
-        }
-        
-        .product-image {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            transform: rotateY(-5deg);
-            transition: var(--transition);
-            border: 8px solid white;
-        }
-        
-        .product-image-container:hover .product-image {
-            transform: rotateY(0deg);
-        }
-        
-        .product-details {
-            flex: 1;
-            min-width: 300px;
-            padding: 1.5rem;
-            background: white;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-        }
-        
-        .product-details h3 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-            position: relative;
-            padding-bottom: 0.8rem;
-        }
-        
-        .product-details h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: var(--primary);
-        }
-        
-        .product-info {
-            margin-bottom: 1.5rem;
-        }
-        
-        .info-row {
-            display: flex;
-            margin-bottom: 0.8rem;
-        }
-        
-        .info-label {
-            font-weight: 600;
-            min-width: 160px;
-            color: #555;
-        }
-        
-        .info-value {
-            color: var(--dark);
-        }
-        
-        .key-benefits {
-            margin: 2rem 0;
-        }
-        
-        .key-benefits h4 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-        
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.2rem;
-        }
-        
-        .benefit-card {
-            background: var(--primary-light);
-            padding: 1.2rem;
-            border-radius: 10px;
-            text-align: center;
-            transition: var(--transition);
-        }
-        
-        .benefit-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
-        }
-        
-        .benefit-icon {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 0.8rem;
-        }
-        
-        /* Description Section */
-        .description-section {
-            max-width: 1000px;
-            margin: 4rem auto;
-            padding: 3rem;
-            background: white;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0.95) 50%, rgba(248, 187, 208, 0.3) 100%);
+            padding: 6rem 0;
             position: relative;
             overflow: hidden;
         }
         
-        .description-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 8px;
-            height: 100%;
-            background: var(--primary);
-        }
-        
-        .description-section h2 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        
-        .description-content {
+        .hero-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
         
-        .description-text {
-            font-size: 1.1rem;
-            color: #444;
+        .hero-content h2 {
+            font-size: 3.2rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 2.5rem;
             line-height: 1.8;
         }
         
-        .description-text p {
-            margin-bottom: 1.2rem;
+        .hero-image {
+            position: relative;
+            text-align: center;
         }
         
-        .how-to-use {
-            background: var(--primary-light);
-            padding: 1.8rem;
-            border-radius: 10px;
+        .hero-product {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform: rotate(3deg);
+            transition: var(--transition);
         }
         
-        .how-to-use h3 {
+        .hero-image:hover .hero-product {
+            transform: rotate(0deg);
+        }
+        
+        /* Products Showcase */
+        .products-showcase {
+            padding: 5rem 0;
+            background: var(--gray-light);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .product-card {
+            background: var(--light);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .product-content {
+            padding: 1.5rem;
+        }
+        
+        .product-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .product-price {
+            color: var(--secondary-dark);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+        
+        .product-benefits {
+            margin: 1rem 0;
+            text-align: left;
+        }
+        
+        .product-benefits ul {
+            padding-left: 1.2rem;
+        }
+        
+        .product-benefits li {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 5rem 0;
+            background: var(--light);
+        }
+        
+        .benefits-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .benefit-card {
+            background: linear-gradient(135deg, var(--secondary-light), var(--light));
+            padding: 2rem;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(76, 175, 80, 0.1);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-color: var(--secondary);
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .benefit-card h3 {
             color: var(--primary);
             margin-bottom: 1rem;
             font-size: 1.4rem;
         }
         
-        .steps {
-            list-style: none;
-            counter-reset: step-counter;
+        /* How to Use Section */
+        .how-to-use {
+            padding: 5rem 0;
+            background: var(--gray-light);
         }
         
-        .steps li {
-            margin-bottom: 1.2rem;
-            padding-left: 2.5rem;
-            position: relative;
-        }
-        
-        .steps li::before {
-            content: counter(step-counter);
-            counter-increment: step-counter;
-            position: absolute;
-            left: 0;
-            top: 0;
-            background: var(--primary);
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-        
-        /* About Section */
-        .about-section {
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
             max-width: 1000px;
-            margin: 4rem auto;
-            padding: 3rem;
-            background: linear-gradient(135deg, var(--primary-light), var(--light));
-            border-radius: 15px;
+            margin: 0 auto;
+        }
+        
+        .step-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: var(--radius);
+            text-align: center;
             box-shadow: var(--shadow);
             position: relative;
         }
         
-        .about-section h2 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            text-align: center;
-            font-size: 1.8rem;
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .about-text p {
-            margin-bottom: 1.2rem;
-            font-size: 1.1rem;
-            color: #444;
-            line-height: 1.8;
-        }
-        
-        .mission-values {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 1.8rem;
-            border-radius: 10px;
-        }
-        
-        .mission-values h3 {
-            color: var(--primary);
-            margin-bottom: 1.2rem;
-            font-size: 1.4rem;
-        }
-        
-        .values-list {
-            list-style: none;
-        }
-        
-        .values-list li {
-            margin-bottom: 1rem;
-            padding-left: 2rem;
-            position: relative;
-        }
-        
-        .values-list li::before {
-            content: "✓";
+        .step-number {
             position: absolute;
-            left: 0;
-            top: 0;
-            color: var(--primary);
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .step-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .step-card h3 {
+            color: var(--secondary-dark);
+            margin-bottom: 1rem;
         }
         
         /* Testimonials */
         .testimonials {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 2rem;
+            padding: 5rem 0;
+            background: var(--light);
         }
         
-        .testimonials h2 {
-            text-align: center;
-            color: var(--primary);
-            margin-bottom: 2.5rem;
-            font-size: 1.8rem;
-        }
-        
-        .testimonial-grid {
+        .testimonials-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
         
         .testimonial-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
+            background: var(--light);
+            padding: 2.5rem;
+            border-radius: var(--radius);
             box-shadow: var(--shadow);
             position: relative;
+            border-top: 4px solid var(--primary);
+            transition: var(--transition);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
         
         .testimonial-card::before {
@@ -588,7 +461,7 @@
             top: -20px;
             left: 20px;
             font-size: 5rem;
-            color: var(--accent);
+            color: var(--primary);
             opacity: 0.2;
             font-family: serif;
         }
@@ -610,7 +483,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: var(--accent);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -634,72 +507,182 @@
             margin-top: 0.5rem;
         }
         
-        /* Soap Section */
-        .soap-section {
-            background: linear-gradient(135deg, var(--primary-light), var(--light));
-            padding: 4rem 5%;
-            margin: 4rem 0;
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background: var(--gray-light);
         }
         
-        .soap-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            gap: 3rem;
-            flex-wrap: wrap;
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
             align-items: center;
         }
         
-        .soap-image-container {
-            flex: 1;
-            min-width: 300px;
+        .about-image img {
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .about-content h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+        }
+        
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .values-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+        
+        .values-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            color: #555;
+        }
+        
+        .values-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
             text-align: center;
         }
         
-        .soap-image {
-            max-width: 100%;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            border: 8px solid white;
-            max-height: 400px;
-            object-fit: cover;
-        }
-        
-        .soap-details {
-            flex: 1;
-            min-width: 300px;
-            padding: 2rem;
-            background: white;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-        }
-        
-        .soap-details h3 {
+        .cta h2 {
             color: var(--primary);
             margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-            position: relative;
-            padding-bottom: 0.8rem;
+            font-size: 2.5rem;
         }
         
-        .soap-details h3::after {
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            color: #555;
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            padding: 4rem 0 2rem;
+            color: #ccc;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .footer-col h3 {
+            color: var(--light);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-col h3::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 60px;
-            height: 3px;
+            width: 50px;
+            height: 2px;
             background: var(--primary);
         }
         
-        .soap-benefits {
-            margin: 1.5rem 0;
+        .footer-links {
+            list-style: none;
+            padding: 0;
         }
         
-        .soap-benefits h4 {
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            text-decoration: none;
+            color: #ccc;
+            transition: var(--transition);
+            display: block;
+        }
+        
+        .footer-links a:hover {
             color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
+            transform: translateX(5px);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .contact-info a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .contact-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-top: 3px;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         /* Floating Buttons */
@@ -734,136 +717,24 @@
             background: var(--primary-dark);
         }
         
-        .icon {
-            font-size: 1.3rem;
+        .float-btn.whatsapp {
+            background: var(--secondary);
         }
         
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, var(--primary-light), var(--light));
-            padding: 4rem 5% 2rem;
-            color: #555;
-            font-size: 0.95rem;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-        }
-        
-        .footer-col h3 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-        
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background: var(--primary);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-        
-        .footer-links a {
-            text-decoration: none;
-            color: #555;
-            transition: var(--transition);
-            display: block;
-        }
-        
-        .footer-links a:hover {
-            color: var(--primary);
-            transform: translateX(5px);
-        }
-        
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        
-        .contact-item {
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-        }
-        
-        .contact-icon {
-            color: var(--primary);
-            font-size: 1.1rem;
-            margin-top: 3px;
-        }
-        
-        .footer-social {
-            display: flex;
-            gap: 15px;
-            margin-top: 1.5rem;
-        }
-        
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: white;
-            color: var(--primary);
-            transition: var(--transition);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        
-        .social-link:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-5px);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            border-top: 1px solid rgba(233, 30, 99, 0.2);
-            max-width: 1200px;
-            margin: 2rem auto 0;
+        .float-btn.whatsapp:hover {
+            background: var(--secondary-dark);
         }
         
         /* Responsive Styles */
-        @media (max-width: 900px) {
-            .product-section {
-                flex-direction: column;
+        @media (max-width: 1024px) {
+            .hero-container, .about-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
             }
             
-            .soap-container {
-                flex-direction: column;
-            }
-            
-            .hero h2 {
-                font-size: 2.3rem;
-            }
-            
-            .desktop-verify {
-                display: none;
-            }
-            
-            .mobile-verify {
-                display: block;
+            .hero-content h2 {
+                font-size: 2.5rem;
             }
         }
         
@@ -876,35 +747,25 @@
                 display: block;
             }
             
-            .hero {
-                padding: 3rem 5%;
+            .header-actions .verify-btn {
+                display: none;
             }
             
-            .hero h2 {
+            .hero-content h2 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
                 font-size: 2rem;
-            }
-            
-            .product-details, .description-section, .about-section {
-                padding: 1.5rem;
-            }
-            
-            .mobile-verify-btn {
-                display: flex;
-            }
-        }
-        
-        @media (min-width: 769px) {
-            .mobile-nav {
-                display: none !important;
             }
         }
         
         @media (max-width: 480px) {
-            .hero h2 {
+            .hero-content h2 {
                 font-size: 1.8rem;
             }
             
-            .cta-btn {
+            .btn {
                 padding: 0.9rem 1.8rem;
                 font-size: 1rem;
             }
@@ -917,16 +778,6 @@
             
             .float-btn span {
                 display: none;
-            }
-            
-            .mobile-nav a {
-                font-size: 1.2rem;
-                padding: 0.8rem;
-            }
-            
-            .mobile-verify-btn {
-                padding: 0.8rem 1.5rem;
-                font-size: 1rem;
             }
         }
         
@@ -945,27 +796,11 @@
         .animate {
             animation: fadeInUp 0.8s ease forwards;
         }
-        
-        /* Added new styles for footer links */
-        .contact-item a {
-            color: #555;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .contact-item a:hover {
-            color: var(--primary);
-            text-decoration: underline;
-        }
-        
-        /* Add new styles for developer credit */
         .developer-credit {
             margin-top: 15px;
             text-align: center;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: #888;
-            padding-top: 15px;
-            border-top: 1px dashed rgba(233, 30, 99, 0.2);
         }
         
         .developer-credit a {
@@ -975,311 +810,295 @@
             display: inline-flex;
             align-items: center;
             gap: 5px;
+            font-weight: 600;
         }
         
         .developer-credit a:hover {
             text-decoration: underline;
-            color: var(--primary-dark);
+            color: var(--primary-light);
         }
         
-        .developer-credit .zomaxa-logo {
-            display: inline-block;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .heart-icon {
+            color: var(--primary);
+            animation: pulse 1.5s infinite;
         }
         
-        /* Add new styles for colored buttons */
-        .float-btn.whatsapp {
-            background: #25D366; /* WhatsApp green */
-        }
-        
-        .float-btn.whatsapp:hover {
-            background: #128C7E; /* Darker green on hover */
-        }
-        
-        .float-btn.call {
-            background: #E53935; /* Red color */
-        }
-        
-        .float-btn.call:hover {
-            background: #C62828; /* Darker red on hover */
-        }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
-       <div class="logo"><a href="#hero">
-    <img src="logo.png" alt="VitaGlow Logo" style="height: 50px;"/></a>
-</div>
-
-        <a href="verify.html" class="verify-btn desktop-verify">
-            <i class="fas fa-shield-alt"></i> Verify Product
-        </a>
-        
-        <nav>
-            <a href="#hero">Home</a>
-            <a href="#product">Products</a>
-            <a href="#testimonials">Testimonials</a>
-            <a href="#about">About</a>
-        </nav>
-        
-        <div class="mobile-menu">
-            <i class="fas fa-bars"></i>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="logo.png" alt="VitaGlow Logo" class="logo-icon">
+            </div>
+            
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#products">Products</a>
+                <a href="#benefits">Benefits</a>
+                <a href="#how-to-use">How to Use</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#about">About</a>
+                <a href="verify.html" class="verify-btn">
+                    <i class="fas fa-shield-alt"></i> Verify Product
+                </a>    
+            </nav>
+            
+            <div class="header-actions">
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
         </div>
     </header>
-    
-    <!-- Mobile Navigation - Fixed -->
-    <div class="mobile-nav" id="mobileNav">
-                  <div id="closeMenu">✖</div> 
-
-        <a href="#hero">Home</a>
-        <a href="#product">Products</a>
-        <a href="#about">About Us</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="verify.html" class="mobile-verify-btn">
-            <i class="fas fa-shield-alt"></i> Verify Product
-        </a>
-    </div>
 
     <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-content">
-            <h2>Premium Skincare Solutions</h2>
-            <p>VitaGlow presents premium skincare products that strengthen and protect your skin, remove dark spots and freckles, and enhance your natural glow. Dermatologist tested and designed for both men and women.</p>
-            <a href="#product" class="cta-btn">Discover Products <i class="fas fa-arrow-right"></i></a>
-        </div>
-    </section>
-
-    <!-- Whitening Cream Section -->
-    <section class="product-section" id="product">
-        <div class="product-image-container">
-            <img src="cream.jpg" alt="VitaGlow Cream" class="product-image">
-        </div>
-        <div class="product-details">
-            <h3>VitaGlow Whitening Cream</h3>
-            <div class="product-info">
-                <div class="info-row">
-                    <div class="info-label">Brand:</div>
-                    <div class="info-value">VitaGlow</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-label">Form:</div>
-                    <div class="info-value">Cream</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-label">Packaging:</div>
-                    <div class="info-value"> Acrylic Jar (30 GMS)</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-label">Gender:</div>
-                    <div class="info-value">Unisex (Men & Women)</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-label">Fragrance:</div>
-                    <div class="info-value">Yes</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-label">Shelf Life:</div>
-                    <div class="info-value">36 Months</div>
-                </div>
+    <section class="hero" id="home">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h2>Discover Your Natural Radiance</h2>
+                <p>VitaGlow offers premium skincare solutions that reveal your true beauty. Our scientifically formulated products are designed to transform your skin, giving you the confidence to shine.</p>
+                <a href="#products" class="btn btn-primary">Explore Products <i class="fas fa-arrow-right"></i></a>
             </div>
-            
-            <div class="key-benefits">
-                <h4>Key Benefits</h4>
-                <div class="benefits-grid">
-                    <div class="benefit-card">
-                        <i class="fas fa-spa benefit-icon"></i>
-                        <p>Removes freckles and dark spots</p>
-                    </div>
-                    <div class="benefit-card">
-                        <i class="fas fa-shield-alt benefit-icon"></i>
-                        <p>Strengthens and protects skin</p>
-                    </div>
-                    <div class="benefit-card">
-                        <i class="fas fa-sun benefit-icon"></i>
-                        <p>Brightens skin tone and texture</p>
-                    </div>
-                    <div class="benefit-card">
-                        <i class="fas fa-star benefit-icon"></i>
-                        <p>Boosts natural radiance</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tagline">
-                <p><em>Feel Your Own Greatness</em></p>
+            <div class="hero-image">
+                <img src="products.jpg" alt="VitaGlow Products" class="hero-product">
             </div>
         </div>
     </section>
 
-    <!-- Cleansing Soap Section -->
-    <section class="soap-section" id="soap">
-        <div class="soap-container">
-            <div class="soap-image-container">
-                <img src="soap.jpg" alt="VitaGlow Soap" class="soap-image">
+    <!-- Products Showcase -->
+    <section class="products-showcase" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Premium Collection</h2>
+                <p>Formulated with care to bring out your natural beauty</p>
             </div>
-            <div class="soap-details">
-                <h3>VitaGlow Skin whitening Soap</h3>
-                <div class="product-info">
-                    <div class="info-row">
-                        <div class="info-label">Brand:</div>
-                        <div class="info-value">VitaGlow</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Form:</div>
-                        <div class="info-value">Bar Soap</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Weight:</div>
-                        <div class="info-value">135 GMS</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Skin Type:</div>
-                        <div class="info-value">All Skin Types</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Fragrance:</div>
-                        <div class="info-value">Mild, Refreshing</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Shelf Life:</div>
-                        <div class="info-value">36 Months</div>
+            
+            <div class="products-grid">
+                <!-- Product 1: VitaGlow Cream -->
+                <div class="product-card">
+                    <img src="cream.jpg" alt="VitaGlow Cream" class="product-image">
+                    <div class="product-content">
+                        <h3>VitaGlow Cream</h3>
+                        <p>Advanced formula for radiant, even-toned skin</p>
+                        <div class="product-benefits">
+                            <ul>
+                                <li>Reduces dark spots & pigmentation</li>
+                                <li>Enhances skin brightness</li>
+                                <li>Hydrates & nourishes deeply</li>
+                                <li>Dermatologist tested</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/+919916726373" class="btn btn-primary">Buy Now</a>
                     </div>
                 </div>
                 
-                <div class="soap-benefits">
-                    <h4>Key Benefits</h4>
-                    <ul style="padding-left: 1.2rem;">
-                        <li>Deep cleansing without stripping natural oils</li>
-                        <li>Gently exfoliates and removes dead skin cells</li>
-                        <li>Helps reduce acne and prevent breakouts</li>
-                        <li>Leaves skin feeling soft and refreshed</li>
-                        <li>Enhances effectiveness of whitening cream</li>
-                    </ul>
+                <!-- Product 2: Advance Skin Whitening Cream -->
+                <div class="product-card">
+                    <img src="advance.jpg" alt="Advance Skin Whitening Cream" class="product-image">
+                    <div class="product-content">
+                        <h3>Advance Skin Whitening Cream</h3>
+                        <p>Professional-grade formula for visible results</p>
+                        <div class="product-benefits">
+                            <ul>
+                                <li>Advanced brightening technology</li>
+                                <li>Reduces appearance of fine lines</li>
+                                <li>Improves skin elasticity</li>
+                                <li>For all skin types</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/+919916726373" class="btn btn-primary">Buy Now</a>
+                    </div>
                 </div>
                 
-                <div class="tagline">
-                    <p><em>Pure Cleansing for Radiant Skin</em></p>
+                <!-- Product 3: VitaGlow Soap -->
+                <div class="product-card">
+                    <img src="soap.jpg" alt="VitaGlow Soap" class="product-image">
+                    <div class="product-content">
+                        <h3>VitaGlow Soap</h3>
+                        <p>Gentle yet effective cleansing for all skin types</p>
+                        <div class="product-benefits">
+                            <ul>
+                                <li>Deeply cleanses without drying</li>
+                                <li>Removes impurities & excess oil</li>
+                                <li>Prepares skin for treatment</li>
+                                <li>Refreshing fragrance</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/+919916726373" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+                
+                <!-- Product 4: Papaya Soap -->
+                <div class="product-card">
+                    <img src="papaya.webp" alt="Papaya Soap" class="product-image">
+                    <div class="product-content">
+                        <h3>Papaya Soap</h3>
+                        <p>Natural exfoliation with papaya enzymes</p>
+                        <div class="product-benefits">
+                            <ul>
+                                <li>Natural papaya enzymes</li>
+                                <li>Gently exfoliates dead skin cells</li>
+                                <li>Brightens and evens skin tone</li>
+                                <li>100% natural ingredients</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/+919916726373" class="btn btn-primary">Buy Now</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Description Section -->
-    <section class="description-section" id="description">
-        <h2>Complete Skincare System</h2>
-        <div class="description-content">
-            <div class="description-text">
-                <p>For best results, use both VitaGlow products together as a complete skincare system. Start with our Premium Cleansing Soap to prepare your skin, then apply our Advance Care Whitening Cream for maximum effectiveness.</p>
-                
-                <p>Our Whitening Cream is a dermatologist-tested formula designed to brighten the skin and give it a youthful, healthy glow. It works by targeting common skin concerns such as dark spots, uneven tone, scars, and fine lines.</p>
-                
-                <p>With the power of TA stem cells and active skin-renewing ingredients, this cream supports deep nourishment while promoting skin regeneration. Regular use can visibly reduce dark circles, acne marks, wrinkles, and pigmentation.</p>
-                
-                <p><strong>Note:</strong> Avoid contact with eyes. In case of irritation, rinse thoroughly with water. If the irritation persists, consult a doctor immediately.</p>
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose VitaGlow</h2>
+                <p>Our products are designed with your skin's health and beauty in mind</p>
             </div>
             
-            <div class="how-to-use">
-                <h3>How To Use</h3>
-                <ol class="steps">
-                    <li>Start by cleansing your skin with Vita Cleansing Soap</li>
-                    <li>Pat skin dry with a clean towel</li>
-                    <li>Apply a small amount of the cream to the skin</li>
-                    <li>Massage it gently in circular motions until fully absorbed</li>
-                    <li>Use on face, neck, and other areas as needed</li>
-                    <li>For best results, apply at night before sleeping</li>
-                </ol>
+            <div class="benefits-container">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>Natural Ingredients</h3>
+                    <p>Formulated with carefully selected natural ingredients that work in harmony with your skin.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Scientifically Proven</h3>
+                    <p>Our products are developed with advanced technology and dermatologist tested.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Cruelty-Free</h3>
+                    <p>We never test on animals and are committed to ethical production practices.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Visible Results</h3>
+                    <p>See noticeable improvements in your skin's texture and appearance within weeks.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about-section" id="about">
-        <h2>About Us</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>VitaGlow is committed to providing premium skincare solutions that empower individuals to reveal their natural beauty. Our products are designed with powerful formulas that target pigmentation, uneven skin tone, and dark spots while nourishing and protecting your skin.</p>
-                
-                <p>With a heritage rooted in advanced dermatological research and a passion for healthy skin, VitaGlow continues to innovate with quality products that deliver visible results. Our mission is to help every individual feel confident, radiant, and naturally beautiful.</p>
+    <!-- How to Use Section -->
+    <section class="how-to-use" id="how-to-use">
+        <div class="container">
+            <div class="section-title">
+                <h2>Simple 3-Step Routine</h2>
+                <p>Maximize results with our easy-to-follow skincare system</p>
             </div>
             
-            <div class="mission-values">
-                <h3>Our Mission & Values</h3>
-                <ul class="values-list">
-                    <li>Innovative skincare solutions based on scientific research</li>
-                    <li>Commitment to natural, safe ingredients</li>
-                    <li>Ethical and sustainable production practices</li>
-                    <li>Customer satisfaction is our top priority</li>
-                    <li>Empowering confidence through radiant skin</li>
-                    <li>Continuous improvement and innovation</li>
-                </ul>
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-pump-soap"></i>
+                    </div>
+                    <h3>Cleanse</h3>
+                    <p>Start with our VitaGlow or Papaya Soap to remove impurities and prepare your skin.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3>Treat</h3>
+                    <p>Apply our VitaGlow Cream or Advance Whitening Cream to target specific concerns.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <h3>Protect</h3>
+                    <p>Finish with sunscreen during the day to shield your skin from environmental damage.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials -->
     <section class="testimonials" id="testimonials">
-        <h2>Customer Testimonials</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    "I've been using both VitaGlow products for 3 months and the results are amazing! My dark spots have faded significantly and my skin has never looked brighter."
-                </div>
-                <div class="testimonial-author">
-                    <div class="author-avatar">S</div>
-                    <div class="author-info">
-                        <h4>Sarah Johnson</h4>
-                        <p>Marketing Executive</p>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+        <div class="container">
+            <div class="section-title">
+                <h2>Customer Love</h2>
+                <p>Hear what our satisfied customers have to say</p>
+            </div>
+            
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "I've struggled with uneven skin tone for years. After using VitaGlow Cream for just a month, my skin has never looked better. The dark spots have significantly faded!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Marketing Executive</p>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    "The cleansing soap is incredible! It leaves my skin feeling fresh without any dryness. Combined with the whitening cream, it's the perfect skincare routine."
-                </div>
-                <div class="testimonial-author">
-                    <div class="author-avatar">M</div>
-                    <div class="author-info">
-                        <h4>Michael Tan</h4>
-                        <p>Software Engineer</p>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "The Papaya Soap is incredible! It leaves my skin feeling fresh without any dryness. Combined with the Advance Whitening Cream, it's the perfect skincare routine."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h4>Michael Tan</h4>
+                            <p>Software Engineer</p>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    "After just 4 weeks of using VitaGlow, my friends started asking me what I was doing differently. My skin feels softer and looks years younger!"
-                </div>
-                <div class="testimonial-author">
-                    <div class="author-avatar">P</div>
-                    <div class="author-info">
-                        <h4>Priya Sharma</h4>
-                        <p>Fashion Designer</p>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "After just 4 weeks of using the Advance Skin Whitening Cream, my friends started asking me what I was doing differently. My skin feels softer and looks years younger!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">P</div>
+                        <div class="author-info">
+                            <h4>Priya Sharma</h4>
+                            <p>Fashion Designer</p>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1287,34 +1106,56 @@
         </div>
     </section>
 
-    <!-- Floating Buttons -->
-      <div class="floating-buttons">
-        <a href="https://wa.me/+919916726373" class="float-btn whatsapp">
-            <i class="fab fa-whatsapp icon"></i>
-            <span>Chat on WhatsApp</span>
-        </a>
-        <a href="tel:+966508054355" class="float-btn call">
-            <i class="fas fa-phone-alt icon"></i>
-            <span>Call Us Now</span>
-        </a>
-    </div>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container about-container">
+            <div class="about-image">
+                <img src="women.jpg" alt="About VitaGlow">
+            </div>
+            <div class="about-content">
+                <h2>Our Story</h2>
+                <p>VitaGlow was born from a passion for helping people feel confident in their own skin. Our journey began when our founder, a dermatologist with over 15 years of experience, noticed a gap in the market for effective, yet gentle skincare solutions.</p>
+                
+                <p>We combine scientific research with nature's best ingredients to create products that deliver visible results without compromising on safety or ethics.</p>
+                
+                <ul class="values-list">
+                    <li>Innovative formulas based on scientific research</li>
+                    <li>Commitment to natural, safe ingredients</li>
+                    <li>Ethical and sustainable production practices</li>
+                    <li>Customer satisfaction is our top priority</li>
+                </ul>
+                
+                <a href="#" class="btn btn-secondary">Learn More About Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Transform Your Skin?</h2>
+            <p>Join thousands of satisfied customers who have discovered the VitaGlow difference. Start your journey to radiant, healthy skin today.</p>
+            <a href="#products" class="btn btn-primary">Shop Now <i class="fas fa-shopping-cart"></i></a>
+        </div>
+    </section>
+
     <!-- Footer -->
-      <!-- Footer -->
-    <footer id="contact">
-        <div class="footer-content">
+    <footer>
+        <div class="container footer-container">
             <div class="footer-col">
                 <h3>VitaGlow</h3>
-                <p>Glowtiqa offers premium skincare solutions, meticulously formulated to unveil your skin's natural radiance, restore youthful glow, and empower your confidence from the inside out.</p>
+                <p>Premium skincare solutions meticulously formulated to unveil your skin's natural radiance, restore youthful glow, and empower your confidence.</p>
             </div>
             
             <div class="footer-col">
                 <h3>Quick Links</h3>
                 <ul class="footer-links">
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#product">Whitening Cream</a></li>
-                    <li><a href="#soap">Cleansing Soap</a></li>
-                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#how-to-use">How to Use</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#about">About</a></li>
                 </ul>
             </div>
             
@@ -1323,113 +1164,80 @@
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt contact-icon"></i>
-                        <span>France</span>
+                        <span>123 Beauty Street, Paris, France</span>
                     </div>
-                     Enquiries 
-                        <br>
                     <div class="contact-item">
                         <i class="fas fa-phone-alt contact-icon"></i>
-                            <a href="tel:+919916726373">+919916726373</a></p>
-                        
+                        <a href="tel:+919916726373">+919916726373</a>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope contact-icon"></i>
-                        <a href="mailto:glowtiqa@gmail.com">VitaGlow@gmail.com</a>
+                        <a href="mailto:vitaglow@gmail.com">vitaglow@gmail.com</a>
                     </div>
                 </div>
+                
             </div>
-            
         </div>
         
-        <div class="copyright">
-            &copy; 2025 VitaGlow. All rights reserved.
-            
-            <!-- Developer credit added here -->
-            <div class="developer-credit">
-                Developed <i class="fas fa-heart" style="color: var(--primary);"></i> by 
+        <div class="container copyright">
+            <p>&copy; 2025 VitaGlow. All rights reserved.</p>
+        <div class="developer-credit">
+                Crafted with <i class="fas fa-heart heart-icon"></i> at 
                 <a href="https://zomaxa.co" target="_blank">
-                    <span class="zomaxa-logo">zomaxa.co</span>
-                    <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i>
+                    zomaxa.co
                 </a>
             </div>
-        </div>
+            </div>  
     </footer>
-<script>
-    // Mobile navigation toggle with overlay
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const closeMenu = document.getElementById('closeMenu');
-    const mobileNav = document.getElementById('mobileNav');
-    
-    // Create overlay element
-    const navOverlay = document.createElement('div');
-    navOverlay.className = 'nav-overlay';
-    document.body.appendChild(navOverlay);
-    
-    mobileMenu.addEventListener('click', () => {
-        mobileNav.classList.add('active');
-        navOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    });
-    
-    closeMenu.addEventListener('click', () => {
-        closeMobileMenu();
-    });
-    
-    navOverlay.addEventListener('click', () => {
-        closeMobileMenu();
-    });
-    
-    function closeMobileMenu() {
-        mobileNav.classList.remove('active');
-        navOverlay.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-    
-    // Close menu when clicking on links
-    const mobileLinks = document.querySelectorAll('.mobile-nav a');
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            closeMobileMenu();
-        });
-    });
-    
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/+919916726373" class="float-btn whatsapp">
+            <i class="fab fa-whatsapp"></i>
+            <span>Chat on WhatsApp</span>
+        </a>
+        <a href="tel:+966508054355" class="float-btn call">
+            <i class="fas fa-phone-alt"></i>
+            <span>Call Us Now</span>
+        </a>
+    </div>
+
+    <script>
+        // Simple animation for elements when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.product-card, .benefit-card, .testimonial-card, .step-card');
             
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') {
-                closeMobileMenu();
-                return;
-            }
-            
-            const targetElement = document.querySelector(targetId);
-            if(targetElement) {
-                closeMobileMenu();
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
                 });
-            }
+            }, {
+                threshold: 0.1
+            });
+            
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Mobile menu toggle
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const nav = document.querySelector('nav');
+            
+            mobileMenu.addEventListener('click', () => {
+                nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+                nav.style.flexDirection = 'column';
+                nav.style.position = 'absolute';
+                nav.style.top = '100%';
+                nav.style.left = '0';
+                nav.style.right = '0';
+                nav.style.background = 'var(--light)';
+                nav.style.padding = '1rem';
+                nav.style.gap = '1.5rem';
+                nav.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+            });
         });
-    });
-    
-    // Add animation to elements when they come into view
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) {
-                entry.target.classList.add('animate');
-            }
-        });
-    }, {
-        threshold: 0.1
-    });
-    
-    document.querySelectorAll('.product-section, .description-section, .about-section, .testimonial-card, .soap-container').forEach(el => {
-        observer.observe(el);
-    });
-</script>
-    
+    </script>
 </body>
 </html>
