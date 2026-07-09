@@ -1,0 +1,21 @@
+{
+  "name": "VitaGlow",
+  "short_name": "VitaGlow",
+  "description": "Premium skincare solutions for radiant, spotless skin.",
+  "icons": [
+    {
+      "src": "/image/favion/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/image/favion/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#D8959B",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/"
+}
