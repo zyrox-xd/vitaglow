@@ -7,21 +7,24 @@
     <meta name="description" content="Discover VitaGlow's premium skincare range. Scientifically formulated creams and soaps for radiant, spotless skin." />
 
     <!-- ─── Favicon ─── -->
-<link rel="icon" type="image/png" href="images/favion/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="images/favion/favicon.svg" />
-<link rel="shortcut icon" href="images/favion/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="images/favion/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="VitaGlow" />
-<link rel="manifest" href="images/favion/site.webmanifest" />
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-584K8FGE3E"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <link rel="icon" type="image/png" href="images/favion/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="images/favion/favicon.svg" />
+    <link rel="shortcut icon" href="images/favion/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favion/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="VitaGlow" />
+    <link rel="manifest" href="images/favion/site.webmanifest" />
 
-  gtag('config', 'G-584K8FGE3E');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-584K8FGE3E">
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-584K8FGE3E');
+    </script>
+
     <!-- External Libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -42,14 +45,19 @@
             --peony: #f2d1d4;
             --mauve: #D8959B;
             --mauve-dark: #c07d82;
-            --sage: #829672;
-            --sage-dark: #5c6b50;
-            --evergreen: #344C3D;
-            --text-muted: #6B7A6A;
+
+            /* ── Lime Green Palette ── */
+            --lime: #7CB342;
+            --lime-dark: #558B2F;
+            --lime-light: #C5E1A5;
+            --lime-bg: #F1F8E9;
+            --text-dark: #2D4A1E;
+            --text-muted: #6B8A4A;
+
             --border-light: #e8e5e0;
-            --shadow-sm: 0 4px 20px rgba(52, 76, 61, 0.06);
-            --shadow-md: 0 12px 40px rgba(52, 76, 61, 0.08);
-            --shadow-lg: 0 24px 64px rgba(216, 149, 155, 0.15);
+            --shadow-sm: 0 4px 20px rgba(45, 74, 30, 0.06);
+            --shadow-md: 0 12px 40px rgba(45, 74, 30, 0.08);
+            --shadow-lg: 0 24px 64px rgba(124, 179, 66, 0.15);
             --radius: 16px;
             --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             --whatsapp: #25D366;
@@ -65,7 +73,7 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--mist);
-            color: var(--evergreen);
+            color: var(--text-dark);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
@@ -76,7 +84,7 @@
 
         /* ─── Top Bar ─── */
         .top-contact-bar {
-            background: var(--evergreen);
+            background: var(--text-dark);
             padding: 8px 24px;
             display: flex;
             justify-content: flex-end;
@@ -119,14 +127,14 @@
             transition: box-shadow 0.3s;
         }
         header.scrolled {
-            box-shadow: 0 4px 24px rgba(52, 76, 61, 0.08);
+            box-shadow: 0 4px 24px rgba(45, 74, 30, 0.08);
         }
 
         .logo h1 {
             font-family: 'Playfair Display', serif;
             font-size: 1.7rem;
             font-weight: 700;
-            color: var(--evergreen);
+            color: var(--text-dark);
             letter-spacing: -0.5px;
         }
         .logo h1 span {
@@ -160,7 +168,7 @@
         }
         nav a:hover,
         nav a.active {
-            color: var(--evergreen);
+            color: var(--text-dark);
         }
         nav a:hover::after,
         nav a.active::after {
@@ -171,7 +179,7 @@
         }
 
         .verify-btn {
-            background: var(--mauve);
+            background: var(--lime);
             color: #fff !important;
             padding: 8px 20px;
             border-radius: 40px;
@@ -182,15 +190,15 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 4px 16px rgba(216, 149, 155, 0.25);
+            box-shadow: 0 4px 16px rgba(124, 179, 66, 0.25);
         }
         .verify-btn::after {
             display: none !important;
         }
         .verify-btn:hover {
-            background: var(--mauve-dark);
+            background: var(--lime-dark);
             transform: translateY(-1px);
-            box-shadow: 0 8px 28px rgba(216, 149, 155, 0.25);
+            box-shadow: 0 8px 28px rgba(124, 179, 66, 0.25);
             color: #fff !important;
         }
 
@@ -198,12 +206,12 @@
             position: relative;
             cursor: pointer;
             font-size: 1.3rem;
-            color: var(--evergreen);
+            color: var(--text-dark);
             transition: color 0.3s, transform 0.2s;
             padding: 6px;
         }
         .cart-icon:hover {
-            color: var(--mauve);
+            color: var(--lime);
             transform: scale(1.05);
         }
         .cart-count {
@@ -227,12 +235,12 @@
             display: none;
             font-size: 1.4rem;
             cursor: pointer;
-            color: var(--evergreen);
+            color: var(--text-dark);
             padding: 4px;
             transition: color 0.3s;
         }
         .mobile-menu:hover {
-            color: var(--mauve);
+            color: var(--lime);
         }
 
         /* ─── Mobile Nav ─── */
@@ -264,7 +272,7 @@
             transition: color 0.3s, transform 0.3s;
         }
         .mobile-nav #closeMenu:hover {
-            color: var(--evergreen);
+            color: var(--text-dark);
             transform: rotate(90deg);
         }
         .mobile-nav a {
@@ -279,12 +287,12 @@
         }
         .mobile-nav a:hover,
         .mobile-nav a.active {
-            color: var(--mauve);
+            color: var(--lime);
             padding-left: 8px;
         }
         .mobile-nav .mobile-verify-btn {
             margin-top: 16px;
-            background: var(--mauve);
+            background: var(--lime);
             color: #fff !important;
             border-radius: 40px;
             padding: 14px 20px;
@@ -293,7 +301,7 @@
             font-weight: 600;
         }
         .mobile-nav .mobile-verify-btn:hover {
-            background: var(--mauve-dark);
+            background: var(--lime-dark);
             padding-left: 20px;
             color: #fff !important;
         }
@@ -345,7 +353,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.4rem;
             font-weight: 600;
-            color: var(--evergreen);
+            color: var(--text-dark);
         }
         .close-cart {
             background: none;
@@ -401,7 +409,7 @@
         .cart-item .item-name {
             font-weight: 600;
             font-size: 0.9rem;
-            color: var(--evergreen);
+            color: var(--text-dark);
         }
         .cart-item .item-price {
             font-size: 0.85rem;
@@ -423,16 +431,16 @@
             cursor: pointer;
             font-size: 0.8rem;
             font-weight: 600;
-            color: var(--evergreen);
+            color: var(--text-dark);
             transition: all 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         .cart-item .item-qty button:hover {
-            background: var(--mauve);
+            background: var(--lime);
             color: #fff;
-            border-color: var(--mauve);
+            border-color: var(--lime);
         }
         .cart-item .item-qty span {
             font-weight: 600;
@@ -465,7 +473,7 @@
             font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 16px;
-            color: var(--evergreen);
+            color: var(--text-dark);
         }
         .cart-footer .cart-total-row span:last-child {
             color: var(--mauve);
@@ -474,7 +482,7 @@
         .buy-now-btn {
             display: block;
             width: 100%;
-            background: var(--mauve);
+            background: var(--lime);
             color: #fff !important;
             text-align: center;
             padding: 16px;
@@ -483,15 +491,15 @@
             font-size: 1rem;
             text-decoration: none;
             transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
-            box-shadow: 0 4px 20px rgba(216, 149, 155, 0.25);
+            box-shadow: 0 4px 20px rgba(124, 179, 66, 0.25);
             border: none;
             cursor: pointer;
             letter-spacing: 0.3px;
         }
         .buy-now-btn:hover {
-            background: var(--mauve-dark);
+            background: var(--lime-dark);
             transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(216, 149, 155, 0.25);
+            box-shadow: 0 8px 32px rgba(124, 179, 66, 0.25);
             color: #fff !important;
         }
 
@@ -500,7 +508,7 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: var(--evergreen);
+            background: var(--text-dark);
             color: #fff;
             padding: 16px 28px;
             border-radius: 12px;
@@ -526,7 +534,7 @@
 
         /* ─── Buttons ─── */
         .btn-primary {
-            background: var(--mauve);
+            background: var(--lime);
             color: #fff;
             border: none;
             padding: 14px 32px;
@@ -535,7 +543,7 @@
             font-size: 0.95rem;
             cursor: pointer;
             transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
-            box-shadow: 0 4px 16px rgba(216, 149, 155, 0.25);
+            box-shadow: 0 4px 16px rgba(124, 179, 66, 0.25);
             display: inline-flex;
             align-items: center;
             gap: 10px;
@@ -543,14 +551,14 @@
             text-decoration: none;
         }
         .btn-primary:hover {
-            background: var(--mauve-dark);
+            background: var(--lime-dark);
             transform: translateY(-2px);
-            box-shadow: 0 8px 28px rgba(216, 149, 155, 0.25);
+            box-shadow: 0 8px 28px rgba(124, 179, 66, 0.25);
         }
 
         .btn-outline {
             background: transparent;
-            color: var(--evergreen);
+            color: var(--text-dark);
             border: 2px solid var(--border-light);
             padding: 12px 28px;
             border-radius: 40px;
@@ -564,9 +572,9 @@
             text-decoration: none;
         }
         .btn-outline:hover {
-            border-color: var(--mauve);
-            color: var(--mauve);
-            background: var(--peony);
+            border-color: var(--lime);
+            color: var(--lime);
+            background: var(--lime-bg);
         }
 
         /* ─── Hero ─── */
@@ -586,7 +594,7 @@
             right: -10%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(216, 149, 155, 0.08) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(124, 179, 66, 0.06) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
         }
@@ -597,7 +605,7 @@
             left: -10%;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(130, 150, 114, 0.06) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(124, 179, 66, 0.05) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
         }
@@ -614,7 +622,7 @@
         }
         .hero .hero-text .badge {
             display: inline-block;
-            background: var(--mauve);
+            background: var(--lime);
             color: #fff;
             font-size: 0.7rem;
             font-weight: 700;
@@ -629,7 +637,7 @@
             font-size: 3.8rem;
             font-weight: 700;
             line-height: 1.1;
-            color: var(--evergreen);
+            color: var(--text-dark);
             margin-bottom: 20px;
             letter-spacing: -0.5px;
         }
@@ -658,7 +666,7 @@
             color: var(--text-muted);
         }
         .hero .hero-text .trust-row i {
-            color: var(--sage);
+            color: var(--lime);
             margin-right: 4px;
         }
 
@@ -679,7 +687,7 @@
             gap: 12px;
             font-size: 0.85rem;
             font-weight: 600;
-            color: var(--evergreen);
+            color: var(--text-dark);
             animation: float 3s ease-in-out infinite;
         }
         .hero .hero-image .floating-badge:nth-child(2) {
@@ -693,7 +701,7 @@
             animation-delay: 1.2s;
         }
         .hero .hero-image .floating-badge i {
-            color: var(--mauve);
+            color: var(--lime);
             font-size: 1.2rem;
         }
 
@@ -720,7 +728,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
             font-weight: 700;
-            color: var(--evergreen);
+            color: var(--text-dark);
             letter-spacing: -0.3px;
         }
         .section-header p {
@@ -731,7 +739,7 @@
         /* ─── Swiper Overrides ─── */
         .swiper-button-next,
         .swiper-button-prev {
-            color: var(--mauve) !important;
+            color: var(--lime) !important;
             background: rgba(255, 255, 255, 0.85);
             width: 40px;
             height: 40px;
@@ -741,7 +749,7 @@
         }
         .swiper-button-next:hover,
         .swiper-button-prev:hover {
-            background: var(--mauve);
+            background: var(--lime);
             color: #fff !important;
             box-shadow: var(--shadow-md);
         }
@@ -755,30 +763,30 @@
             opacity: 1;
         }
         .swiper-pagination-bullet-active {
-            background: var(--mauve) !important;
+            background: var(--lime) !important;
         }
 
         /* ─── Mega Combo Card (Homepage) ─── */
         .mega-combo-card {
             position: relative;
-            border: 3px solid var(--sage);
+            border: 3px solid var(--lime);
             border-radius: var(--radius);
             overflow: hidden;
             background: #fff;
             transition: transform 0.4s, box-shadow 0.4s;
             cursor: pointer;
-            margin-bottom: 40px;  /* 👈 SPACE AFTER MEGA COMBO */
+            margin-bottom: 40px;
         }
         .mega-combo-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 24px 64px rgba(130, 150, 114, 0.15);
+            box-shadow: 0 24px 64px rgba(124, 179, 66, 0.15);
         }
         .mega-combo-card .mega-badge {
             position: absolute;
             top: 16px;
             left: 16px;
             z-index: 10;
-            background: var(--sage);
+            background: var(--lime);
             color: #fff;
             padding: 6px 18px;
             border-radius: 40px;
@@ -786,7 +794,7 @@
             font-weight: 700;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            box-shadow: 0 4px 16px rgba(130, 150, 114, 0.25);
+            box-shadow: 0 4px 16px rgba(124, 179, 66, 0.25);
         }
         .mega-combo-card .best-value {
             position: absolute;
@@ -807,7 +815,7 @@
             width: 100%;
             overflow: hidden;
             flex-shrink: 0;
-            background: var(--peony);
+            background: var(--lime-bg);
         }
         .mega-combo-card .mega-img-wrap img {
             width: 100%;
@@ -852,7 +860,7 @@
             background: #fff;
             border-radius: var(--radius);
             overflow: hidden;
-            border: 2px solid var(--sage);
+            border: 2px solid var(--lime);
             transition: transform 0.4s, box-shadow 0.4s;
             position: relative;
             height: 100%;
@@ -862,13 +870,13 @@
         }
         .combo-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 24px 64px rgba(130, 150, 114, 0.15);
+            box-shadow: 0 24px 64px rgba(124, 179, 66, 0.15);
         }
         .combo-card .combo-badge {
             position: absolute;
             top: 12px;
             right: 12px;
-            background: var(--sage);
+            background: var(--lime);
             color: #fff;
             padding: 4px 14px;
             border-radius: 40px;
@@ -877,13 +885,13 @@
             letter-spacing: 0.5px;
             text-transform: uppercase;
             z-index: 2;
-            box-shadow: 0 4px 16px rgba(130, 150, 114, 0.2);
+            box-shadow: 0 4px 16px rgba(124, 179, 66, 0.2);
         }
         .combo-card .combo-save {
             position: absolute;
             top: 12px;
             left: 12px;
-            background: var(--sage);
+            background: var(--lime);
             color: #fff;
             padding: 4px 14px;
             border-radius: 40px;
@@ -892,7 +900,7 @@
             letter-spacing: 0.5px;
             text-transform: uppercase;
             z-index: 2;
-            box-shadow: 0 4px 16px rgba(130, 150, 114, 0.2);
+            box-shadow: 0 4px 16px rgba(124, 179, 66, 0.2);
         }
         .combo-card .combo-img {
             width: 100%;
@@ -913,7 +921,7 @@
         .combo-card .combo-title {
             font-size: 1rem;
             font-weight: 700;
-            color: var(--evergreen);
+            color: var(--text-dark);
             margin-bottom: 4px;
         }
         .combo-card .combo-sub {
@@ -936,7 +944,7 @@
             margin-left: 8px;
         }
         .combo-card .btn-combo {
-            background: var(--sage);
+            background: var(--lime);
             color: #fff;
             border: none;
             padding: 10px 16px;
@@ -945,7 +953,7 @@
             font-size: 0.8rem;
             cursor: pointer;
             transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
-            box-shadow: 0 4px 16px rgba(130, 150, 114, 0.2);
+            box-shadow: 0 4px 16px rgba(124, 179, 66, 0.2);
             width: 100%;
             display: inline-flex;
             align-items: center;
@@ -954,9 +962,9 @@
             letter-spacing: 0.2px;
         }
         .combo-card .btn-combo:hover {
-            background: var(--sage-dark);
+            background: var(--lime-dark);
             transform: translateY(-2px);
-            box-shadow: 0 8px 28px rgba(130, 150, 114, 0.25);
+            box-shadow: 0 8px 28px rgba(124, 179, 66, 0.25);
         }
 
         /* ─── Benefit Cards ─── */
@@ -979,21 +987,21 @@
             width: 52px;
             height: 52px;
             border-radius: 50%;
-            background: var(--peony);
-            color: var(--mauve);
+            background: var(--lime-bg);
+            color: var(--lime);
             font-size: 1.3rem;
             margin-bottom: 12px;
             transition: background 0.3s, color 0.3s, transform 0.3s;
         }
         .benefit-card:hover .icon-wrap {
-            background: var(--mauve);
+            background: var(--lime);
             color: #fff;
             transform: scale(1.05);
         }
         .benefit-card h4 {
             font-size: 0.95rem;
             font-weight: 700;
-            color: var(--evergreen);
+            color: var(--text-dark);
             margin-bottom: 4px;
         }
         .benefit-card p {
@@ -1017,7 +1025,7 @@
         .product-card:hover {
             transform: translateY(-6px);
             box-shadow: var(--shadow-lg);
-            border-color: var(--peony);
+            border-color: var(--lime-light);
         }
         .product-card .product-img {
             width: 100%;
@@ -1038,7 +1046,7 @@
         .product-card .product-title {
             font-size: 1rem;
             font-weight: 700;
-            color: var(--evergreen);
+            color: var(--text-dark);
             margin-bottom: 2px;
         }
         .product-card .product-sub {
@@ -1075,7 +1083,7 @@
         .testimonial-card blockquote {
             font-size: 0.98rem;
             line-height: 1.7;
-            color: var(--evergreen);
+            color: var(--text-dark);
             font-style: italic;
             margin-bottom: 16px;
         }
@@ -1088,17 +1096,17 @@
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            background: var(--peony);
+            background: var(--lime-bg);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            color: var(--mauve);
+            color: var(--lime);
             font-size: 1rem;
         }
         .testimonial-card .author .name {
             font-weight: 600;
-            color: var(--evergreen);
+            color: var(--text-dark);
             font-size: 0.9rem;
         }
         .testimonial-card .author .role {
@@ -1108,7 +1116,7 @@
 
         /* ─── Newsletter ─── */
         .newsletter-section {
-            background: var(--evergreen);
+            background: var(--text-dark);
             padding: 64px 24px;
             color: #fff;
             text-align: center;
@@ -1122,7 +1130,7 @@
             right: -20%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(216, 149, 155, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(124, 179, 66, 0.12) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
         }
@@ -1139,7 +1147,7 @@
             margin-bottom: 12px;
         }
         .newsletter-section h2 span {
-            color: var(--mauve);
+            color: var(--lime-light);
         }
         .newsletter-section p {
             color: rgba(255, 255, 255, 0.7);
@@ -1173,7 +1181,7 @@
             padding: 14px 32px;
             border-radius: 40px;
             border: none;
-            background: var(--mauve);
+            background: var(--lime);
             color: #fff;
             font-weight: 700;
             cursor: pointer;
@@ -1181,7 +1189,7 @@
             white-space: nowrap;
         }
         .newsletter-section .newsletter-form button:hover {
-            background: var(--mauve-dark);
+            background: var(--lime-dark);
             transform: scale(1.02);
         }
 
@@ -1218,7 +1226,7 @@
         .floating-btn .tooltip {
             position: absolute;
             right: 68px;
-            background: var(--evergreen);
+            background: var(--text-dark);
             color: #fff;
             padding: 6px 14px;
             border-radius: 8px;
@@ -1240,7 +1248,7 @@
             right: -6px;
             top: 50%;
             transform: translateY(-50%);
-            border-left: 6px solid var(--evergreen);
+            border-left: 6px solid var(--text-dark);
             border-top: 6px solid transparent;
             border-bottom: 6px solid transparent;
         }
@@ -1259,7 +1267,7 @@
 
         /* ─── Footer ─── */
         .footer {
-            background: var(--evergreen);
+            background: var(--text-dark);
             color: rgba(255, 255, 255, 0.65);
             padding: 56px 24px 32px;
             border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -1304,7 +1312,7 @@
             display: block;
         }
         .footer .brand-name span {
-            color: var(--mauve);
+            color: var(--lime-light);
         }
         .footer .footer-bottom {
             max-width: 1200px;
@@ -1319,7 +1327,7 @@
             gap: 8px;
         }
         .footer .footer-bottom a {
-            color: var(--mauve);
+            color: var(--lime-light);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
@@ -1533,7 +1541,6 @@
             background: var(--text-muted);
         }
 
-        /* ─── Clickable Product Cards ─── */
         .clickable-card {
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -1591,7 +1598,7 @@
     <div class="mobile-nav" id="mobileNav">
         <button id="closeMenu">✖</button>
         <div style="text-align:center; margin-bottom:28px;">
-            <h1 style="font-family:'Playfair Display',serif; color:var(--mauve); font-size:1.8rem; font-weight:700;">VitaGlow</h1>
+            <h1 style="font-family:'Playfair Display',serif; color:var(--lime); font-size:1.8rem; font-weight:700;">VitaGlow</h1>
         </div>
         <a href="index.html" class="active">Home</a>
         <a href="products.html">Shop</a>
@@ -1664,8 +1671,8 @@
                 </div>
             </div>
             <div class="hero-image">
-                <div style="width:100%;max-width:400px;aspect-ratio:1/1;background:var(--mist);border-radius:16px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border-light);overflow:hidden;">
-                    <i class="fas fa-leaf" style="color:var(--mauve);font-size:5rem;"></i>
+                <div style="width:100%;max-width:400px;aspect-ratio:1/1;background:var(--lime-bg);border-radius:16px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border-light);overflow:hidden;">
+                    <i class="fas fa-leaf" style="color:var(--lime);font-size:5rem;"></i>
                 </div>
                 <div class="floating-badge" style="top:5%; right:-5%;">
                     <i class="fas fa-star"></i> 4.9 &bull; 2k+ reviews
@@ -1682,7 +1689,7 @@
         <div class="max-w-[1200px] mx-auto">
             <div class="section-header">
                 <div>
-                    <span class="text-[#829672] font-bold text-sm uppercase tracking-wider block"><i class="fas fa-tags"></i> Best Value</span>
+                    <span class="text-[#7CB342] font-bold text-sm uppercase tracking-wider block"><i class="fas fa-tags"></i> Best Value</span>
                     <h2>Curated Systems</h2>
                     <p>Bundled routines for maximum value and visible results.</p>
                 </div>
@@ -1691,7 +1698,7 @@
 
             <!-- Mega Combo -->
             <div class="mega-combo-card clickable-card" onclick="window.location.href='product-full-routine.html'">
-                
+
                 <!-- Badges -->
                 <div class="mega-badge"><i class="fas fa-gift" style="margin-right:4px;"></i> Save ₹1,098</div>
                 <div class="best-value"><i class="fas fa-star" style="margin-right:6px;"></i> Best Value</div>
@@ -1703,11 +1710,11 @@
 
                 <!-- Details (Right on PC) -->
                 <div class="mega-body">
-                    <span style="color:var(--mauve); font-weight:700; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.5px;">The Master Routine</span>
-                    <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; color:var(--evergreen); margin:4px 0 8px;">The Full Routine</h3>
+                    <span style="color:var(--lime); font-weight:700; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.5px;">The Master Routine</span>
+                    <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; color:var(--text-dark); margin:4px 0 8px;">The Full Routine</h3>
                     <p style="color:var(--text-muted); font-size:0.92rem; margin-bottom:16px; line-height:1.7;">A complete 24‑hour cycle. Includes Advanced Night Cream, Skin Whitening Cream, Skin Whitening Soap, and Papaya Brightening Soap.</p>
                     <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:14px;">
-                        <span style="font-size:1.5rem; font-weight:700; color:var(--evergreen);">₹4,000</span>
+                        <span style="font-size:1.5rem; font-weight:700; color:var(--text-dark);">₹4,000</span>
                         <span style="font-size:0.95rem; font-weight:400; color:var(--text-muted); text-decoration:line-through;">₹4,800</span>
                     </div>
                     <button class="btn-primary" onclick="event.stopPropagation(); window.addToCart({id:5, name:'The Full Routine', price:4000, advance:1000, image:'images/mega-combo.jpg'}, 1)" style="max-width:280px; padding:12px 28px;">
@@ -1812,12 +1819,12 @@
     </section>
 
     <!-- ─── WHY VITAGLOW ─── -->
-    <section class="py-12 px-5" style="background: var(--mist);">
+    <section class="py-12 px-5" style="background: var(--lime-bg);">
         <div class="max-w-[1200px] mx-auto">
             <div class="text-center mb-8">
-                <span class="text-[#829672] font-bold text-sm uppercase tracking-wider block"><i class="fas fa-leaf"></i> Why VitaGlow</span>
-                <h2 class="font-serif text-2xl md:text-3xl font-bold text-[#344C3D] mt-1">Skincare with purpose</h2>
-                <p class="text-[#6B7A6A] text-sm md:text-base max-w-lg mx-auto mt-1">Every product is crafted with science, care, and a commitment to your skin's health.</p>
+                <span class="text-[#7CB342] font-bold text-sm uppercase tracking-wider block"><i class="fas fa-leaf"></i> Why VitaGlow</span>
+                <h2 class="font-serif text-2xl md:text-3xl font-bold text-[#2D4A1E] mt-1">Skincare with purpose</h2>
+                <p class="text-[#6B8A4A] text-sm md:text-base max-w-lg mx-auto mt-1">Every product is crafted with science, care, and a commitment to your skin's health.</p>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
@@ -1926,11 +1933,11 @@
     </section>
 
     <!-- ─── TESTIMONIALS ─── -->
-    <section class="py-12 px-5" style="background: var(--mist);">
+    <section class="py-12 px-5" style="background: var(--lime-bg);">
         <div class="max-w-[1200px] mx-auto">
             <div class="text-center mb-8">
-                <span class="text-[#829672] font-bold text-sm uppercase tracking-wider block"><i class="fas fa-quote-left"></i> Real stories</span>
-                <h2 class="font-serif text-2xl md:text-3xl font-bold text-[#344C3D] mt-1">What our community says</h2>
+                <span class="text-[#7CB342] font-bold text-sm uppercase tracking-wider block"><i class="fas fa-quote-left"></i> Real stories</span>
+                <h2 class="font-serif text-2xl md:text-3xl font-bold text-[#2D4A1E] mt-1">What our community says</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -1977,11 +1984,11 @@
     <section class="py-12 px-5" style="background: #fff; border-top:1px solid var(--border-light); border-bottom:1px solid var(--border-light);">
         <div class="max-w-[1000px] mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
             <div class="flex items-center gap-4">
-                <div style="width:56px;height:56px;border-radius:50%;background:var(--peony);display:flex;align-items:center;justify-content:center;color:var(--mauve);font-size:1.6rem;">
+                <div style="width:56px;height:56px;border-radius:50%;background:var(--lime-bg);display:flex;align-items:center;justify-content:center;color:var(--lime);font-size:1.6rem;">
                     <i class="fas fa-shield-alt"></i>
                 </div>
                 <div>
-                    <h4 style="font-weight:700;color:var(--evergreen);font-size:1.1rem;">100% Authentic Products</h4>
+                    <h4 style="font-weight:700;color:var(--text-dark);font-size:1.1rem;">100% Authentic Products</h4>
                     <p style="color:var(--text-muted);font-size:0.9rem;">Every VitaGlow product comes with a unique verification code.</p>
                 </div>
             </div>
@@ -2022,8 +2029,8 @@
             <div>
                 <h4>Connect</h4>
                 <p>Bangalore, India</p>
-                <p style="margin-top:4px;"><a href="mailto:vitaglowstores@gmail.com" style="color:var(--mauve); text-decoration:none;">vitaglowstores@gmail.com</a></p>
-                <p style="margin-top:4px;"><a href="tel:+918904198424" style="color:var(--mauve); text-decoration:none;">+91 8904198424</a></p>
+                <p style="margin-top:4px;"><a href="mailto:vitaglowstores@gmail.com" style="color:var(--lime-light); text-decoration:none;">vitaglowstores@gmail.com</a></p>
+                <p style="margin-top:4px;"><a href="tel:+918904198424" style="color:var(--lime-light); text-decoration:none;">+91 8904198424</a></p>
             </div>
         </div>
         <div class="footer-bottom">
